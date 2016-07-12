@@ -53,6 +53,12 @@ module Kitchen
         debug("[#{name}] Verify completed.")
       end
 
+      def install_command
+        cmd = "#{sudo('mkdir')} -p #{config[:root_path]}/#{config[:upload_path]}"
+        debug(cmd)
+        cmd
+      end
+
       # for legacy drivers.
       def run_command
         if config[:remote_exec]
